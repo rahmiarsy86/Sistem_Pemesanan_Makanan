@@ -6,20 +6,8 @@ public class Restoran {
     // Main Class
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Ramen shoyu = new Ramen();
-        shoyu.setJenisMenu("Ramen");
-        shoyu.setNamaRamen("Shoyu");
-        shoyu.setJenisKaldu("Kecap Asin");
-        shoyu.setHarga(32000);
-
-        MakananPendamping katsu = new MakananPendamping();
-        katsu.setJenisMenu("Makanan Pendamping");
-        katsu.setNamaMakananPendamping("Katsu");
-        katsu.setHarga(16000);
-
         ArrayList<Menu> listMenu = new ArrayList<>();
-        listMenu.add(shoyu);
-        listMenu.add(katsu);
+        daftarMenu(listMenu);
 
         for (Menu menu : listMenu) {
             menu.output();
@@ -27,6 +15,45 @@ public class Restoran {
         }
 
         ArrayList<Pelanggan> listPelanggan = new ArrayList<>();
+
+        inputPelanggan(listPelanggan, listMenu, input);
+
+        for (Pelanggan out : listPelanggan) {
+            out.output();
+            System.out.println();
+        }
+
+        for (Menu menu : listMenu) {
+            menu.output();
+            System.out.println();
+        }
+    }
+
+    static void daftarMenu(ArrayList<Menu> listMenu) {
+        Ramen shoyu = new Ramen();
+        shoyu.setJenisMenu("Ramen");
+        shoyu.setNamaRamen("Shoyu");
+        shoyu.setJenisKaldu("Kecap Asin");
+        shoyu.setHarga(30000);
+
+        Ramen curry = new Ramen();
+        curry.setJenisMenu("Ramen");
+        curry.setNamaRamen("Curry");
+        curry.setJenisKaldu("Kari Jepang");
+        curry.setHarga(35000);
+
+        Ramen miso = new Ramen();
+        miso.setJenisMenu("Ramen");
+        miso.setNamaRamen("Miso");
+        miso.setJenisKaldu("Kuah Miso");
+        miso.setHarga(32000);
+
+        listMenu.add(shoyu);
+        listMenu.add(curry);
+        listMenu.add(miso);
+    }
+
+    static void inputPelanggan(ArrayList<Pelanggan> listPelanggan, ArrayList<Menu> listMenu,Scanner input) {
         Pelanggan pelanggan = new Pelanggan();
         System.out.println("Masukkan Nama Pelanggan!");
         String namaPelanggan = input.nextLine();
@@ -42,14 +69,5 @@ public class Restoran {
         }
         listPelanggan.add(pelanggan);
 
-        for (Pelanggan out : listPelanggan) {
-            out.output();
-            System.out.println();
-        }
-
-        for (Menu menu : listMenu) {
-            menu.output();
-            System.out.println();
-        }
     }
 }

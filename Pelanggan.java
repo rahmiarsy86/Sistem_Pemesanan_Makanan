@@ -34,8 +34,8 @@ public class Pelanggan {
     }
 
     void output() {
+        System.out.println("Nama Pelanggan :" + this.namaPelanggan);
         for (Menu pesanan : listPesanan) {
-            System.out.println("Nama Pelanggan :" + this.namaPelanggan);
             System.out.println();
             pesanan.output();
             System.out.println("Jumlah Pesanan :" + pesanan.getJumlah());
